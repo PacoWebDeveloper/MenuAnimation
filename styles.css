@@ -1,0 +1,125 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: verdana;
+  }
+:root {
+  --mainHth: 50px;
+  --bgnGeneral: #111;
+  --bgnMenu: #efefef;
+  --secondbgnMenu: rgb(122, 228, 246);
+  --textIconMenu: rgb(0, 143, 168);
+  --transition: 300ms;
+}
+html, body{
+  width: 100%;
+  height: 100%;
+}
+header,
+nav,
+ul,
+.menu-item,
+.icon,
+.lblIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header {
+  width: 100%;
+  height: 100px;
+  background-color: var(--bgnGeneral);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* ----> Menu start <---- */
+nav {
+  width: 600px;
+  height: var(--mainHth);
+  background-color: var(--bgnGeneral);
+}
+nav ul {
+  list-style: none;
+  width: 95%;
+  height: var(--mainHth);
+  background-color: var(--bgnMenu);
+  border-radius: 10px;
+}
+nav ul .menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% / 5);
+  height: var(--mainHth);
+  position: relative;    
+  z-index: 1;
+}
+.icon-container {
+  width: 100%; 
+  height: var(--mainHth);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+  font-size: 2em;
+  transition: var(--transition);
+  color: var(--bgnGeneral);
+}
+.lblIcon {
+  display: none;
+  transition: var(--transition);
+  color: var(--textIconMenu);
+  opacity: 0;
+}
+.icon-container:hover .icon {
+  font-size: 1.3em;
+  color: var(--secondbgnMenu);
+}
+.icon-container:hover .lblIcon {
+  display: block;
+  opacity: 1;
+  color: var(--bgnGeneral);
+  font-size: 0.7em;
+}
+/* NOTE: active class is going to set on icon-container */
+.active {
+  content: '';
+  background-color: var(--secondbgnMenu);
+  box-shadow: inset 0 0 15px var(--textIconMenu);
+  color: var(--bgnGeneral);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 5px solid var(--bgnGeneral);
+  position: absolute;
+  top: -10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all var(--transition);
+}
+.active .lblIcon {
+  opacity: 1;
+}
+.active:hover .icon {
+  color: var(--bgnGeneral);
+  font-size: 2em;
+}
+.active:hover .lblIcon {
+  color: var(--bgnGeneral);
+  opacity: 1;
+  font-size: 0.65em;
+}
+/* ======> Menu ends <====== */
+.personal-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
